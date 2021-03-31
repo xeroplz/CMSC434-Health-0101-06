@@ -29,6 +29,11 @@ class NutritionActivity : AppCompatActivity() {
         val nutrientGraph = findViewById<PieChart>(R.id.nutrientGraph)
         val nutrientType = ArrayList<String>()
 
+        val colors = ArrayList<Int>()
+        colors.add( 0xff82ff69.toInt())
+        colors.add( 0xffff4747.toInt())
+        colors.add( 0xff47cdff.toInt())
+
         nutrientType.add("Carbs")
         nutrientType.add("Fats")
         nutrientType.add("Protiens")
@@ -42,8 +47,14 @@ class NutritionActivity : AppCompatActivity() {
 
         val pieDataSet = PieDataSet(
             nutrientValue,
-            "Nutrients"
+            ""
         )
+
+        pieDataSet.sliceSpace = 2f
+        pieDataSet.colors = colors
+        nutrientGraph.holeRadius = 5f
+        nutrientGraph.setBackgroundColor(0xffffffff.toInt())
+
 
         val data =  PieData(nutrientType, pieDataSet)
 
