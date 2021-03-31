@@ -36,7 +36,7 @@ class NutritionActivity : AppCompatActivity() {
 
         nutrientType.add("Carbs")
         nutrientType.add("Fats")
-        nutrientType.add("Protiens")
+        nutrientType.add("Proteins")
 
         val nutrientValue = ArrayList<Entry>()
         nutrientValue.add(Entry(22f, 0))
