@@ -1,41 +1,22 @@
 package com.example.cmsc434health0101_06.Nutrition
 
+import android.nfc.Tag
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cmsc434health0101_06.R
-import java.io.*;
-import org.json.*;
-import com.google.gson.*;
 
 class MealManagerActivity : AppCompatActivity() {
 
     private val fileName = "meals.json"
-    protected lateinit var myExternalFile: File
-    internal var myData = ""
-    private val isExternalStorageReadOnly: Boolean
-        get() {
-            val extStorageState = Environment.getExternalStorageState()
-            return if (Environment.MEDIA_MOUNTED_READ_ONLY == extStorageState) {
-                true
-            } else false
-        }
-
-    private val isExternalStorageAvailable: Boolean
-        get() {
-            val extStorageState = Environment.getExternalStorageState()
-            return if (Environment.MEDIA_MOUNTED == extStorageState) {
-                true
-            } else false
-        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal_manager)
 
-        // Test write data
-        val meals = ArrayList<Meal>()
+        // Create Food and Meals
+        var meals = ArrayList<Meal>()
 
         val foods = ArrayList<Food>()
         val banana = Food("Banana", 105, 0.4, 27.0)
@@ -53,17 +34,27 @@ class MealManagerActivity : AppCompatActivity() {
         val meal2 = Meal("Lunch", foods2)
         meals.add(meal2)
 
-        val filePath = applicationContext.filesDir
-        Log.i(TAG, "Meals json located at $filePath/$fileName.")
+        // Empty meal reading test
+        var readMeals = Meal.getSavedMeals(applicationContext)
 
-        // Serialize
-        val gson = Gson()
-        val str = gson.toJson(meals)
+        // Write meals!
+        // They should appear in /data/user/0/com.example.cmsc434health0101_06/files/meals.json
+        Meal.saveMeals(applicationContext, meals)
 
-        // Get file & write text
-        val outFile = File(filePath, fileName)
-        outFile.writeText(str)
-        Log.i(TAG, "Meal write success!")
+        // Clear out original meals
+        meals = ArrayList<Meal>()
+
+        // Read saved meals
+        readMeals = Meal.getSavedMeals(applicationContext)
+
+        // If the list isn't empty, it's valid!
+        if (!readMeals.isEmpty()) meals = readMeals
+
+        // Check out the meals object in debug. If it's empty, the read failed. If it's filled, the
+        // read was a success!
+
+        // Redundant line for you to use as a breakpoint
+        meals = meals
     }
 
     companion object {
