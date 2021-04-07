@@ -15,6 +15,9 @@ class MealManagerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal_manager)
 
+        /* EXAMPLE READ/WRITE CODE FOR MEALS ------------------------------------------------------
+        // Uncomment to make it work, of course.
+
         // Create Food and Meals
         var meals = ArrayList<Meal>()
 
@@ -55,6 +58,16 @@ class MealManagerActivity : AppCompatActivity() {
 
         // Redundant line for you to use as a breakpoint
         meals = meals
+
+        ---------------------------------------------------------------------------------------- */
+
+        /* Now for the actual work... Just need to have meal add and delete functionality.
+        Plus a list of all meals currently in the list. List view will have the meal's name,
+        total calories, total fats, and total carbs visible.
+        Clicking on a meal will show a context menu that has 3 buttons. View, Delete, Cancel.
+        Each of these should be self explanatory
+        */
+        
     }
 
     companion object {
