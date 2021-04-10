@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Food Name:">
+    </TextView>
+
+    <EditText
+        android:id="@+id/titleView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/titleLabel"
+        android:textAppearance="?android:attr/textAppearanceLarge">
+    </EditText>
+
+    <TextView
+        android:id="@+id/CaloriesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="52dp"
+        android:layout_marginRight="70dp"
+        android:text="@string/meal_item_calories" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/caloriesView"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_toRightOf="@id/CaloriesLabel"
+        android:layout_marginLeft="-65dp" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/FatsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meal_item_fats"
+        android:layout_marginTop="52dp"
+        android:layout_marginRight="70dp"
+        android:layout_toRightOf="@id/CaloriesLabel" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/fatsView"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_toRightOf="@id/FatsLabel"
+        android:layout_marginLeft="-65dp" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/CarbsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meal_item_carbs"
+        android:layout_marginTop="52dp"
+        android:layout_marginRight="70dp"
+        android:layout_toRightOf="@id/FatsLabel" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/carbsView"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_toRightOf="@id/CarbsLabel"
+        android:layout_marginLeft="-65dp" >
+    </EditText>
+
+</RelativeLayout>

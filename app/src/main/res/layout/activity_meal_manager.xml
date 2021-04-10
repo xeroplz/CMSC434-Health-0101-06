@@ -5,10 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Nutrition.MealManagerActivity">
+    <TextView
+        android:id="@+id/mealManagerHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/meal_manager_header"
+        android:textSize="24sp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mealListView"
+        app:layout_constraintStart_toStartOf="parent">
+    </TextView>
 
     <ListView
         android:id="@+id/mealListView"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/mealManagerHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

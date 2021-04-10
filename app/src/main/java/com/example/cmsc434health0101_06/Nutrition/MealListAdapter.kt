@@ -71,17 +71,11 @@ class MealListAdapter(private val mContext: Context) : BaseAdapter() {
         val curr = mItems[position]
 
         val viewHolder: ViewHolder
+        viewHolder = ViewHolder()
 
-        if (null == convertView) {
-
-            viewHolder = ViewHolder()
-
-            // TODO - Inflate the View for this ToDoItem
-            val inflater = LayoutInflater.from(mContext)
-            viewHolder.mItemLayout = (inflater.inflate(R.layout.meal_item, null, false)) as RelativeLayout
-        } else {
-            viewHolder = convertView.tag as ViewHolder
-        }
+        // TODO - Inflate the View for this Meal
+        val inflater = LayoutInflater.from(mContext)
+        viewHolder.mItemLayout = (inflater.inflate(R.layout.meal_item, null, false)) as RelativeLayout
 
         // TODO - Fill in specific Meal data
         // Remember that the data that goes in this View

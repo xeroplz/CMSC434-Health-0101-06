@@ -63,14 +63,7 @@ class Meal(name: String, foods: ArrayList<Food>) {
     }
 
     fun addFood(food: Food) {
-        val hasFoodResult = this.hasFood(food.foodName)
-
-        if (hasFoodResult.value1) {
-            Log.i(TAG, "Failed to add '${food.foodName}'. Food already exists in meal.")
-            return
-        } else {
-            this.foods.add(food)
-        }
+        this.foods.add(food)
     }
 
     init {
@@ -82,6 +75,41 @@ class Meal(name: String, foods: ArrayList<Food>) {
     companion object {
         private val TAG = "HEALTH010106"
         private val fileName = "meals.json"
+
+        fun addMeal(context: Context, meal: Meal) {
+            val meals = getSavedMeals(context)
+            val indices = meals.size - 1
+            (0..indices).forEach {
+                val x = meals.get(it)
+                if (x.mealName.equals(meal.mealName)) {
+                    Log.i(TAG, "Failed to add '${meal.mealName}'. Meal already exists.")
+                    return
+                }
+            }
+
+            meals.add(meal)
+            saveMeals(context, meals)
+        }
+
+        fun removeMeal(context: Context, mealName: String) {
+            val meals = getSavedMeals(context)
+            val indices = meals.size - 1
+            var index = -1
+            (0..indices).forEach {
+                val x = meals.get(it)
+                if (x.mealName.equals(mealName)) {
+                    index = it
+                }
+            }
+
+            if (index == -1) {
+                Log.i(TAG, "Failed to remove '${mealName}'. Meal does not exist.")
+                return
+            } else {
+                meals.removeAt(index)
+                saveMeals(context, meals)
+            }
+        }
 
         // Parses meals.json and retrieves an ArrayList of meals from it.
         // Needs an applicationContext to read from the correct file.
