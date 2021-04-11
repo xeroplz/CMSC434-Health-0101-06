@@ -6,4 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".Nutrition.HomeActivity">
 
+    <TextView
+        android:id="@+id/homeHealthProfileLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="@string/home_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/healthProfileUnimplemented"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Unimplemented"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeHealthProfileLabel"
+        android:layout_marginTop="80dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/homeHdiv1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/healthProfileUnimplemented"
+        android:layout_marginTop="100dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/navigationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="@string/home_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeHdiv1"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp">
+    </TextView>
+
+    <Button
+        android:id="@+id/nutritionActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/activityActivityButton"
+        android:layout_marginBottom="20dp"
+        android:text="@string/home_3"
+        android:textSize="20dp">
+    </Button>
+
+    <Button
+        android:id="@+id/activityActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/mealManagerActivityButton"
+        android:layout_marginBottom="20dp"
+        android:text="@string/home_4"
+        android:textSize="20dp">
+    </Button>
+
+    <Button
+        android:id="@+id/mealManagerActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/editProfileActivityButton"
+        android:layout_marginBottom="20dp"
+        android:text="@string/home_5"
+        android:textSize="20dp">
+    </Button>
+
+    <Button
+        android:id="@+id/editProfileActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:text="@string/home_6"
+        android:textSize="20dp">
+    </Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
