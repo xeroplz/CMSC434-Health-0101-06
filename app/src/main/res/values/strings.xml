@@ -16,7 +16,7 @@
     <string name="meal_item_carbs">Carbs:</string>
     <string name="meal_list_footer">Add New Meal</string>
     <string name="food_list_footer">Add New Food</string>
-    <string name="meal_manager_header">Your Meals</string>
+    <string name="meal_manager_header">Saved Meals</string>
     <string name="button_save">SAVE</string>
     <string name="button_delete">DELETE</string>
     <string name="button_cancel">CANCEL</string>

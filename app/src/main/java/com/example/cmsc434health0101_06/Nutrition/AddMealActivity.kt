@@ -20,6 +20,12 @@ class AddMealActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_meal)
 
+        // Bar Title
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.title = "Add New Meal"
+        }
+
         listView = findViewById(R.id.foodListView)
         mAdapter = FoodListAdapter(applicationContext)
         mViewMealHeader = findViewById(R.id.viewMealHeader)

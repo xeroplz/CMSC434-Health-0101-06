@@ -27,6 +27,12 @@ class MealManagerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal_manager)
 
+        // Bar Title
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.title = "Meal Manager"
+        }
+
         /* Now for the actual work... Just need to have meal add and delete functionality.
         Plus a list of all meals currently in the list. List view will have the meal's name,
         total calories, total fats, and total carbs visible.
