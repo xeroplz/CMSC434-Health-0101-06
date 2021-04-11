@@ -10,11 +10,16 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileReader
 
-class User(name: String, age: Int, gender: Int, heightFt: Int, heightIn: Int, weight: Int, activityLevel: Int) {
+// 0, 1, and 2
+enum class Gender {
+    Male, Female, Other
+}
+
+class User(name: String, age: Int, gender: Int, heightFt: Int, heightIn: Int, weight: Int) {
 
     lateinit var name: String
     var age = 0
-    var activityLevel = 0
+    //var activityLevel = 0
     var weight = 0
     var heightFt = 0
     var heightIn = 0
@@ -27,14 +32,14 @@ class User(name: String, age: Int, gender: Int, heightFt: Int, heightIn: Int, we
         this.heightFt = heightFt
         this.heightIn = heightIn
         this.weight = weight
-        this.activityLevel = activityLevel
+        //this.activityLevel = activityLevel
     }
 
     companion object {
         private val TAG = "HEALTH010106"
         private val fileName = "userProfile.json"
 
-        val dummyUser = User("", 0, 0, 0, 0, 0 ,0)
+        val dummyUser = User("", 0, 0, 0, 0, 0)
 
         fun updateUser(context: Context, user: User) {
             saveUser(context, user)

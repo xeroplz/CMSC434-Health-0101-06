@@ -65,7 +65,7 @@ class MealManagerActivity : AppCompatActivity() {
         // Overwrite footer behavior since it would also make a context menu
         val startAdd = Intent(this, AddMealActivity::class.java)
         footerView.setOnClickListener {
-            startActivityForResult(startAdd,  ADD_MEAL_ITEM_REQUEST)
+            startActivity(startAdd)
         }
 
         // -------------------------------------------------
