@@ -168,11 +168,6 @@ class MealManagerActivity : AppCompatActivity() {
         }
     }
 
-    // Save ToDoItems to file
-    private fun saveItems() {
-
-    }
-
     companion object {
         // IDs for menu items
         private val MENU_DELETE = Menu.FIRST

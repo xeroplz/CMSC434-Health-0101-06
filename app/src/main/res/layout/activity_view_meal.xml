@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="24sp"
-        android:text="Meal Name">
+        android:hint="@string/meal_name">
     </EditText>
 
     <TextView
@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewMealHeader"
         android:textSize="14sp"
-        android:text="separator">
+        android:text="">
     </TextView>
 
     <ListView
