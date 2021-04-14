@@ -24,6 +24,24 @@
     <string name="title_1">HEALTH</string>
     <string name="title_2">0101-06</string>
     <string name="title_3">Tap anywhere to continue.</string>
+    <string name="user_name">Name:</string>
+    <string name="user_age">Age:</string>
+    <string name="user_gender">Gender:</string>
+    <string name="user_heightFt">Height (ft):</string>
+    <string name="user_heightIn">Height (in):</string>
+    <string name="user_weight">Weight (lbs):</string>
+    <string name="user_gender_m">M</string>
+    <string name="user_gender_f">F</string>
+    <string name="user_gender_other">Other</string>
+    <string name="user_continue_button">CONTINUE</string>
+    <string name="user_save_button">SAVE</string>
+    <string name="user_cancel_button">CANCEL</string>
+    <string name="home_1">Health Profile</string>
+    <string name="home_2">Navigation</string>
+    <string name="home_3">Nutrition Tracker</string>
+    <string name="home_4">Activity Tracker</string>
+    <string name="home_5">Meal Manager</string>
+    <string name="home_6">Edit Profile</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

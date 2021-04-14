@@ -1,5 +1,6 @@
 package com.example.cmsc434health0101_06.Nutrition
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -20,9 +21,15 @@ class TitleScreen : AppCompatActivity() {
         // Send to Registration page if there is no user
         // Send to Home Page if there is a user
         mTitleButton.setOnClickListener {
-            // Just a test
-            Toast.makeText(applicationContext, "Title screen clicked.",
-                Toast.LENGTH_LONG).show()
+            val user = User.getSavedUser(applicationContext)
+
+            if (user === User.dummyUser) {
+                val startRegister = Intent(this, RegisterUserActivity::class.java)
+                startActivity(startRegister)
+            } else {
+                val startHome = Intent(this, HomeActivity::class.java)
+                startActivity(startHome)
+            }
         }
     }
 }

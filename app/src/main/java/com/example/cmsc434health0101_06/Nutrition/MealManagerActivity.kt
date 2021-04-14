@@ -33,12 +33,6 @@ class MealManagerActivity : AppCompatActivity() {
             actionBar.title = "Meal Manager"
         }
 
-        /* Now for the actual work... Just need to have meal add and delete functionality.
-        Plus a list of all meals currently in the list. List view will have the meal's name,
-        total calories, total fats, and total carbs visible.
-        Clicking on a meal will show a context menu that has 3 buttons. View, Delete, Cancel.
-        Each of these should be self explanatory
-        */
         listView = findViewById(R.id.mealListView)
         mAdapter = MealListAdapter(applicationContext)
 
@@ -65,7 +59,7 @@ class MealManagerActivity : AppCompatActivity() {
         // Overwrite footer behavior since it would also make a context menu
         val startAdd = Intent(this, AddMealActivity::class.java)
         footerView.setOnClickListener {
-            startActivityForResult(startAdd,  ADD_MEAL_ITEM_REQUEST)
+            startActivity(startAdd)
         }
 
         // -------------------------------------------------
