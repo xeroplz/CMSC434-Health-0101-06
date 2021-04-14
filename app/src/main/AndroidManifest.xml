@@ -38,7 +38,7 @@
             android:name=".Nutrition.TitleScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <!--<action android:name="android.intent.action.MAIN" />-->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,7 +50,13 @@
         <activity
             android:name=".Nutrition.ViewMealActivity"
             android:windowSoftInputMode="adjustPan" />
-
+        <activity
+            android:name=".Activity.ActivityLogs"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Nutrition.MealManagerActivity"
             android:label="@string/title_meal_manager_activity">
@@ -63,6 +69,14 @@
             android:name=".Nutrition.NutritionActivity"
             android:label="@string/title_activity_nutrition">
             <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Activity.AddActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
