@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.cmsc434health0101_06.Activity.ActivityLogs
 import com.example.cmsc434health0101_06.R
 
 class HomeActivity : AppCompatActivity() {
@@ -37,7 +38,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
         mActivityTrackerButton.setOnClickListener {
-            // Unimplemented
+            val activityIntent = Intent(this, ActivityLogs::class.java)
+            startActivity(activityIntent)
         }
 
         mMealManagerButton.setOnClickListener {
