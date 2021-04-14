@@ -4,42 +4,44 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cmsc434health0101_06.R
 
-class ActivityAdapter(val context: Context, private val items:ArrayList<ActivityT>):
+class ActivityAdapter(val context: Context, val items:ArrayList<ActivityT>):
     RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(
-                LayoutInflater.from(context).inflate(
-                        R.layout.activity_item_layout,
-                        parent,
-                        false
-                )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.activity_item_layout,
+                null,
+                false
             )
-        }
+        )
 
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val item = items.get(position)
-        holder.itemName.text = item.activityName
-        holder.itemDate.text = item.activityDate
-        holder.itemType.text = item.activityType
-        holder.itemDuration.text = item.activityDuration.toString()
-        holder.itemWeight.text = item.activityWeight.toString()
-        holder.itemRep.text = item.activityRep.toString()
+        holder.itemName!!.text = holder.mItemLayout!!.findViewById<TextView>(R.id.cardName).toString()
+        holder.itemDate!!.text = holder.mItemLayout!!.findViewById<TextView>(R.id.cardDate).toString()
+        holder.itemType!!.text = holder.mItemLayout!!.findViewById<TextView>(R.id.cardType).toString()
+        holder.itemDuration!!.text = holder.mItemLayout!!.findViewById<TextView>(R.id.cardDuration).toString()
+        holder.itemWeight!!.text = holder.mItemLayout!!.findViewById<TextView>(R.id.cardWeight).toString()
+        holder.itemRep!!.text = holder.mItemLayout!!.findViewById<TextView>(R.id.cardRep).toString()
 
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val itemName = view.cardName
-        val itemDate = view.cardDate
-        val itemType = view.cardType
-        val itemDuration = view.cardDuration
-        val itemWeight = view.cardWeight
-        val itemRep = view.cardRep
-
+        var mItemLayout: LinearLayout? = null
+        val itemName: TextView? = null
+        val itemDate: TextView? = null
+        val itemType: TextView? = null
+        val itemDuration: TextView? = null
+        val itemWeight: TextView? = null
+        val itemRep: TextView? = null
 
     }
 
