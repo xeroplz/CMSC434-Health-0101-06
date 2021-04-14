@@ -22,6 +22,13 @@ class NutritionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_nutrition)
 
         setPieChart()
+
+        /*
+        Nutrition plan:
+        make another "daily" meal list and display the totals for calories, fats, and carbs at the top
+        have user create the list by choosing meals from the original meal list. We might not have time
+        to do the weekly tracker for it, so daily is fine for now.
+         */
     }
 
     fun setPieChart() {
