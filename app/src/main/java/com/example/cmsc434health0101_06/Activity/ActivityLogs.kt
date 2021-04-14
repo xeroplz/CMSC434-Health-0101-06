@@ -19,6 +19,8 @@ import java.io.FileReader
 import java.io.IOException
 import java.nio.charset.Charset
 
+
+
 class ActivityLogs: AppCompatActivity() {
 
     private val activityList = ArrayList<ActivityT>()
@@ -32,7 +34,7 @@ class ActivityLogs: AppCompatActivity() {
 
         try {
             val jsonString = getJSONFromAssets()!!
-            val activities = Gson().fromJson(jsonString,ActivityT::class.java)
+            val activities = Gson().fromJson(jsonString,Activities::class.java)
 
             val obj = JSONObject(getJSONFromAssets())
             val activityArray = obj.getJSONArray("activities")
@@ -41,12 +43,14 @@ class ActivityLogs: AppCompatActivity() {
                 val name = activity.getString("name")
                 val date = activity.getString("date")
                 val type = activity.getString("type")
-                val duration = activity.getString("duration")
-                val weight = activity.getString("weight")
-                val reps = activity.getString("reps")
+                val duration = activity.getString("duration").toIntOrNull()
+                val weight = activity.getString("weight").toIntOrNull()
+                val reps = activity.getString("reps").toIntOrNull()
+                val activityToAdd = ActivityT(name,date,type,duration,weight,reps)
+                activityList.add(activityToAdd)
             }
             findViewById<RecyclerView>(R.id.rvActivityList).layoutManager = LinearLayoutManager(this)
-            val itemAdapter = ActivityAdapter(this,activities)
+            val itemAdapter = ActivityAdapter(this,activities.activities)
             findViewById<RecyclerView>(R.id.rvActivityList).adapter = itemAdapter
         }catch (e: JSONException){
             Log.i("hiya","Json setup incorrect")

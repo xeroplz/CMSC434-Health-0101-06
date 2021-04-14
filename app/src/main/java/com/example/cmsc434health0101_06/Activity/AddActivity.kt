@@ -10,7 +10,7 @@ import java.io.File
 import android.content.Context
 import android.util.Log
 import java.io.IOException
-import com.google.gson.reflect.TypeToken
+import java.nio.charset.Charset
 
 class AddActivity: AppCompatActivity() {
 
@@ -23,6 +23,7 @@ class AddActivity: AppCompatActivity() {
 
         val nameOfActivity = findViewById<EditText>(R.id.activityName)
         val duration = findViewById<EditText>(R.id.duration)
+        val date = findViewById<EditText>(R.id.activityDate)
         val weights = findViewById<EditText>(R.id.weight)
         val reps = findViewById<EditText>(R.id.reps)
         val button = findViewById<Button>(R.id.SubmitActivity)
@@ -41,19 +42,46 @@ class AddActivity: AppCompatActivity() {
 
 
         button.setOnClickListener{
+
+            val jsonString = getJSONFromAssets()!!
+
+
             val name = nameOfActivity.toString()
             val durationString = duration.toString().toIntOrNull()
             val weightString = weights.toString().toIntOrNull()
             val repString = reps.toString().toIntOrNull()
-            val spinnerSelect = spinner.getSelectedItem().toString()
-            val currActivity = ActivityT(name,spinnerSelect,durationString,weightString,repString)
+            val spinnerSelect = spinner.selectedItem.toString()
+            val dateString = date.toString()
+            val currActivity = ActivityT(name,dateString,spinnerSelect,durationString,weightString,repString)
+
             saveToJson(applicationContext,currActivity.toString(),"activities.json")
 
+            val str = Gson().toJson(currActivity)
+            val filePath = applicationContext.filesDir
+            val outFile = File(filePath, "activities.json")
+            outFile.writeText(str)
             val intent = Intent(this, ActivityLogs::class.java)
             startActivity(intent)
         }
 
 
+    }
+    private fun getJSONFromAssets(): String? {
+
+        var json: String? = null
+        val charset: Charset = Charsets.UTF_8
+        try {
+            val myUsersJSONFile = assets.open("Users.json")
+            val size = myUsersJSONFile.available()
+            val buffer = ByteArray(size)
+            myUsersJSONFile.read(buffer)
+            myUsersJSONFile.close()
+            json = String(buffer, charset)
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            return null
+        }
+        return json
     }
     private fun saveToJson(context:Context,activity:String?,fileName:String){
         var filePath = context.filesDir
