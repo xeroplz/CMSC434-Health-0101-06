@@ -36,7 +36,7 @@
     <string name="user_continue_button">CONTINUE</string>
     <string name="user_save_button">SAVE</string>
     <string name="user_cancel_button">CANCEL</string>
-    <string name="home_1">Health Profile</string>
+    <string name="home_1">Health Overview</string>
     <string name="home_2">Navigation</string>
     <string name="home_3">Nutrition Tracker</string>
     <string name="home_4">Activity Tracker</string>
