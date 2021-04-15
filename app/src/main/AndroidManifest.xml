@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CMSC434Health010106.Healthy">
-
+        <activity android:name=".Nutrition.NutritionSelectMealActivity"></activity>
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -23,36 +23,30 @@
         <activity
             android:name=".Nutrition.UpdateProfile"
             android:windowSoftInputMode="adjustPan" />
-
         <activity android:name=".Nutrition.HomeActivity" />
-
         <activity android:name=".Nutrition.ProfileActivity" />
-
         <activity
             android:name=".Nutrition.RegisterUserActivity"
             android:windowSoftInputMode="adjustPan" />
-
         <activity android:name=".Nutrition.ActivityRecommendationsActivity" />
-
         <activity
             android:name=".Nutrition.TitleScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
-                <!--<action android:name="android.intent.action.MAIN" />-->
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Nutrition.AddMealActivity"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".Nutrition.ViewMealActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Activity.ActivityLogs"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -64,7 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Nutrition.NutritionActivity"
             android:label="@string/title_activity_nutrition">
@@ -72,15 +65,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Activity.AddActivity">
+        <activity
+            android:name=".Activity.AddActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

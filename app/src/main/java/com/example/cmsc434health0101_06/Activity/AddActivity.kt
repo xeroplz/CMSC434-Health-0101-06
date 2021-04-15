@@ -19,7 +19,11 @@ class AddActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_activity)
 
-
+        // Bar Title
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.title = "Add Activity"
+        }
 
         val nameOfActivity = findViewById<EditText>(R.id.activityName)
         val duration = findViewById<EditText>(R.id.duration)
@@ -43,7 +47,7 @@ class AddActivity: AppCompatActivity() {
 
         button.setOnClickListener{
 
-            val jsonString = getJSONFromAssets()!!
+            //val jsonString = getJSONFromAssets()!!
 
 
             val name = nameOfActivity.toString()
@@ -85,13 +89,15 @@ class AddActivity: AppCompatActivity() {
     }
     private fun saveToJson(context:Context,activity:String?,fileName:String){
         var filePath = context.filesDir
-        Log.i("hiya", filePath.toString())
+        Log.i(TAG, filePath.toString())
         val jsonUpload = Gson().toJson(activity)
         val fileToUse = File(filePath,fileName)
 
-        Log.i("hiya", fileToUse.toString())
+        Log.i(TAG, fileToUse.toString())
         fileToUse.writeText(jsonUpload)
     }
 
-
+    companion object {
+        private val TAG = "HEALTH010106"
+    }
 }

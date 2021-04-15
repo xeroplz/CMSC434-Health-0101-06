@@ -1,7 +1,13 @@
 package com.example.cmsc434health0101_06.Nutrition
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.ContextMenu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Button
+import android.widget.ListView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cmsc434health0101_06.R
 import com.github.mikephil.charting.charts.PieChart
@@ -13,7 +19,13 @@ import java.security.KeyStore
 
 class NutritionActivity : AppCompatActivity() {
 
-
+    private lateinit var mCaloriesNum : TextView
+    private lateinit var mFatsNum : TextView
+    private lateinit var mCarbsNum : TextView
+    private lateinit var mAddMealButton : Button
+    private lateinit var mListView : ListView
+    internal lateinit var mAdapter: MealListAdapter
+    private var clickedMealPos = -1
 
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +33,11 @@ class NutritionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nutrition)
 
-        setPieChart()
+        // Bar Title
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.title = "Nutrition"
+        }
 
         /*
         Nutrition plan:
@@ -29,8 +45,96 @@ class NutritionActivity : AppCompatActivity() {
         have user create the list by choosing meals from the original meal list. We might not have time
         to do the weekly tracker for it, so daily is fine for now.
          */
+
+        mCaloriesNum = findViewById(R.id.nutritionCaloriesNumLabel)
+        mFatsNum = findViewById(R.id.nutritionFatsNumLabel)
+        mCarbsNum = findViewById(R.id.nutritionCarbsNumLabel)
+        mAddMealButton = findViewById(R.id.nutritionAddMealButton)
+        mListView = findViewById(R.id.nutritionMealListView)
+        mAdapter = MealListAdapter(applicationContext)
+
+        mListView.adapter = mAdapter
+        registerForContextMenu(mListView)
+
+        // Context menu for every item
+        mListView.setOnItemClickListener { parent, view, position, id ->
+            clickedMealPos = position
+            view.showContextMenu()
+        }
+
+        mAddMealButton.setOnClickListener {
+            val startSelect = Intent(this, NutritionSelectMealActivity::class.java)
+            startActivity(startSelect)
+        }
     }
 
+    public override fun onResume() {
+        super.onResume()
+
+        // Get items in case the file changed
+        mAdapter.clear()
+        loadItems()
+        reloadLabels()
+    }
+
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        val mealList = Meal.getSavedMeals(applicationContext, true)
+        menu!!.setHeaderTitle(mealList[clickedMealPos].mealName)
+        menu!!.add(0, v!!.id, 0, "Delete")
+        menu!!.add(0, v!!.id, 0, "Cancel")
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        val mealList = Meal.getSavedMeals(applicationContext, true)
+        val size = mealList.size
+
+        if (item.title === "Delete") {
+            if (clickedMealPos < 0 || clickedMealPos >= size) return true
+
+            // Delete meal
+            val mealName = mealList[clickedMealPos].mealName
+            Meal.removeDailyMeal(applicationContext, mealName)
+            mAdapter.clear()
+            loadItems()
+            reloadLabels()
+        }
+
+        return true
+    }
+
+    // Load stored Meals
+    private fun loadItems() {
+        // Get meals from JSON
+        val mealList = Meal.getSavedMeals(applicationContext, true)
+        if (mealList.isEmpty()) return
+
+        val indices = mealList.size - 1
+        (0..indices).forEach {
+            mAdapter.add(mealList[it])
+        }
+    }
+
+    private fun reloadLabels() {
+        // Update total meal data
+        val meals = Meal.getSavedMeals(applicationContext, true)
+        val indices = meals.size - 1
+        var calories = 0
+        var fats = 0.0
+        var carbs = 0.0
+
+        (0..indices).forEach {
+            calories += meals[it].getCalories()
+            fats += meals[it].getFats()
+            carbs += meals[it].getCarbs()
+        }
+
+        mCaloriesNum.text = calories.toString()
+        mFatsNum.text = fats.toString() + "g"
+        mCarbsNum.text = carbs.toString() + "g"
+    }
+
+    /*
     fun setPieChart() {
 
         val nutrientGraph = findViewById<PieChart>(R.id.nutrientGraph)
@@ -68,5 +172,5 @@ class NutritionActivity : AppCompatActivity() {
         nutrientGraph.data = data
 
     }
-
+    */
 }

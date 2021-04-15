@@ -7,6 +7,146 @@
     tools:context=".Nutrition.AddMealActivity">
 
     <TextView
+        android:id="@+id/nutritionTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="@string/nutrition_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/nutritionCaloriesLabel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:text="Calories"
+        app:layout_constraintTop_toBottomOf="@id/nutritionTitleLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/nutritionFatsLabel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:text="Fats"
+        app:layout_constraintTop_toBottomOf="@id/nutritionTitleLabel"
+        app:layout_constraintStart_toEndOf="@id/nutritionCaloriesLabel"
+        app:layout_constraintEnd_toStartOf="@id/nutritionCarbsLabel"
+        android:layout_marginTop="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/nutritionCarbsLabel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:text="Carbs"
+        app:layout_constraintTop_toBottomOf="@id/nutritionTitleLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/nutritionCaloriesNumLabel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/nutritionCaloriesLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/nutritionFatsNumLabel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="0g"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/nutritionCaloriesLabel"
+        app:layout_constraintStart_toStartOf="@id/nutritionCaloriesLabel"
+        app:layout_constraintEnd_toEndOf="@id/nutritionCarbsLabel"
+        android:layout_marginTop="10dp" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/nutritionCarbsNumLabel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="0g"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/nutritionCaloriesLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/nutritionHdiv1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/nutritionCaloriesNumLabel"
+        android:layout_marginTop="50dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/dailyMealsTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="@string/nutrition_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nutritionHdiv1"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp">
+    </TextView>
+
+    <Button
+        android:id="@+id/nutritionAddMealButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:text="@string/nutrition_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/nutritionHdiv1"
+        android:layout_marginTop="10dp">
+    </Button>
+
+    <ListView
+        android:id="@+id/nutritionMealListView"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        app:layout_constraintTop_toBottomOf="@id/dailyMealsTitleLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+    </ListView>
+
+    <!-- Old Nutrient stuff
+    <TextView
         android:id="@+id/nutrientTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,6 +181,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf= "parent" />
-
+-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

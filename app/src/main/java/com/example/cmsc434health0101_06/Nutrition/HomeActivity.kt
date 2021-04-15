@@ -23,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
         // Bar Title
         val actionBar = supportActionBar
         if (actionBar != null) {
-            actionBar.title = user.name
+            actionBar.title = "Home - " + user.name
         }
 
         mNutritionTrackerButton = findViewById(R.id.nutritionActivityButton)
@@ -62,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
         // Bar Title
         val actionBar = supportActionBar
         if (actionBar != null) {
-            actionBar.title = user.name
+            actionBar.title = "Home - " + user.name
         }
     }
 }

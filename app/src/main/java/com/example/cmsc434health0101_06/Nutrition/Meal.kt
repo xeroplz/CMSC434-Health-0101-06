@@ -38,6 +38,39 @@ class Meal(name: String, foods: ArrayList<Food>) {
     lateinit var mealName: String
     lateinit var foods: ArrayList<Food>
 
+    fun getCalories() : Int {
+        val indices = this.foods.size - 1
+        var calories = 0
+
+        (0..indices).forEach {
+            calories += this.foods[it].calories
+        }
+
+        return calories
+    }
+
+    fun getFats() : Double {
+        val indices = this.foods.size - 1
+        var fats = 0.0
+
+        (0..indices).forEach {
+            fats += this.foods[it].fats
+        }
+
+        return fats
+    }
+
+    fun getCarbs() : Double {
+        val indices = this.foods.size - 1
+        var carbs = 0.0
+
+        (0..indices).forEach {
+            carbs += this.foods[it].carbs
+        }
+
+        return carbs
+    }
+
     fun hasFood(foodName: String) : Tuple<Boolean, Int> {
         val indices = this.foods.size - 1
 
@@ -75,6 +108,45 @@ class Meal(name: String, foods: ArrayList<Food>) {
     companion object {
         private val TAG = "HEALTH010106"
         private val fileName = "meals.json"
+        private val dailyFileName = "todayMeals.json"
+
+        // Json for daily meal list instead of the preserved list
+        //region Daily Meals
+        fun addDailyMeal(context: Context, meal: Meal) {
+            val meals = getSavedMeals(context, true)
+            val indices = meals.size - 1
+            (0..indices).forEach {
+                val x = meals.get(it)
+                if (x.mealName.equals(meal.mealName)) {
+                    Log.i(TAG, "Failed to add '${meal.mealName}'. Meal already exists.")
+                    return
+                }
+            }
+
+            meals.add(meal)
+            saveMeals(context, meals, true)
+        }
+
+        fun removeDailyMeal(context: Context, mealName: String) {
+            val meals = getSavedMeals(context, true)
+            val indices = meals.size - 1
+            var index = -1
+            (0..indices).forEach {
+                val x = meals.get(it)
+                if (x.mealName.equals(mealName)) {
+                    index = it
+                }
+            }
+
+            if (index == -1) {
+                Log.i(TAG, "Failed to remove '${mealName}'. Meal does not exist.")
+                return
+            } else {
+                meals.removeAt(index)
+                saveMeals(context, meals, true)
+            }
+        }
+        //endregion
 
         fun addMeal(context: Context, meal: Meal) {
             val meals = getSavedMeals(context)
@@ -113,14 +185,19 @@ class Meal(name: String, foods: ArrayList<Food>) {
 
         // Parses meals.json and retrieves an ArrayList of meals from it.
         // Needs an applicationContext to read from the correct file.
-        fun getSavedMeals(context: Context) : ArrayList<Meal> {
+        fun getSavedMeals(context: Context, useDailyList: Boolean = false) : ArrayList<Meal> {
             val filePath = context.filesDir
             val gson = Gson()
 
+            // Normal or daily meal list
+            var trueFileName: String
+            if (useDailyList) trueFileName = dailyFileName
+            else trueFileName = fileName
+
             // Read file
             try {
-                val reader = FileReader(filePath.absolutePath + "/" + fileName)
-                Log.i(TAG, filePath.absolutePath + "/" + fileName)
+                val reader = FileReader(filePath.absolutePath + "/" + trueFileName)
+                Log.i(TAG, filePath.absolutePath + "/" + trueFileName)
 
                 // Input comes in as an ArrayList, but each value in it will be turned into a
                 // LinkedTreeMap by GSON
@@ -152,27 +229,32 @@ class Meal(name: String, foods: ArrayList<Food>) {
                     mealsDeserialized.add(Meal(mealName, foodsDeserialized))
                 }
 
-                Log.i(TAG, "Meals successfully retrieved from $fileName.")
+                Log.i(TAG, "Meals successfully retrieved from $trueFileName.")
                 return mealsDeserialized
             } catch (e: FileNotFoundException) {
-                Log.i(TAG, "Cannot read saved meals. $fileName not found.")
+                Log.i(TAG, "Cannot read saved meals. $trueFileName not found.")
                 return ArrayList<Meal>()
             }
         }
 
         // Saves a list of meals to the meals.json file on the phone.
         // Needs an applicationContext to save to the correct file.
-        fun saveMeals(context: Context, meals: ArrayList<Meal>) {
+        fun saveMeals(context: Context, meals: ArrayList<Meal>, useDailyList: Boolean = false) {
             val filePath = context.filesDir
+
+            // Normal or daily meal list
+            var trueFileName: String
+            if (useDailyList) trueFileName = dailyFileName
+            else trueFileName = fileName
 
             // Serialize
             val gson = Gson()
             val str = gson.toJson(meals)
 
             // Get file & write text
-            val outFile = File(filePath, fileName)
+            val outFile = File(filePath, trueFileName)
             outFile.writeText(str)
-            Log.i(TAG, "Meals successfully written to $fileName.")
+            Log.i(TAG, "Meals successfully written to $trueFileName.")
         }
     }
 }

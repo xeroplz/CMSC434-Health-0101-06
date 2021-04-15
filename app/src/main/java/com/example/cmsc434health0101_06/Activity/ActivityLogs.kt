@@ -24,12 +24,30 @@ import java.nio.charset.Charset
 class ActivityLogs: AppCompatActivity() {
 
     private val activityList = ArrayList<ActivityT>()
+    private lateinit var mAddActivityButton : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_activity_logs)
 
+        // Bar Title
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.title = "Activity Tracker"
+        }
+
+        mAddActivityButton = findViewById(R.id.addActivityButton)
+
+        mAddActivityButton.setOnClickListener {
+            val activityIntent = Intent(this, AddActivity::class.java)
+            startActivity(activityIntent)
+        }
+
+        updateList()
+    }
+
+    private fun updateList() {
         val activityList: ArrayList<ActivityT> = ArrayList()
 
         try {
@@ -53,10 +71,10 @@ class ActivityLogs: AppCompatActivity() {
             val itemAdapter = ActivityAdapter(this,activities.activities)
             findViewById<RecyclerView>(R.id.rvActivityList).adapter = itemAdapter
         }catch (e: JSONException){
-            Log.i("hiya","Json setup incorrect")
+            Log.i(TAG,"Json setup incorrect")
         }
-
     }
+
     private fun getJSONFromAssets(): String? {
 
         var json: String? = null
@@ -73,5 +91,15 @@ class ActivityLogs: AppCompatActivity() {
             return null
         }
         return json
+    }
+
+    override fun onResume() {
+        super.onResume()
+        
+        updateList()
+    }
+
+    companion object {
+        private val TAG = "HEALTH010106"
     }
 }

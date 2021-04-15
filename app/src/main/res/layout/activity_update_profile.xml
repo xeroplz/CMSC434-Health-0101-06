@@ -14,7 +14,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:text="@string/user_name"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp">
     </TextView>
 
     <EditText
@@ -33,7 +34,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userNameLabel"
         android:text="@string/user_age"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp">
     </TextView>
 
     <EditText
@@ -54,7 +56,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userAgeLabel"
         android:text="@string/user_heightFt"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp">
     </TextView>
 
     <EditText
@@ -96,12 +99,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userHeightFtLabel"
         android:text="@string/user_weight"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp">
     </TextView>
 
     <EditText
         android:id="@+id/userWeightEdit"
-        android:layout_width="300dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/userWeightLabel"
         app:layout_constraintTop_toBottomOf="@id/userHeightFtEdit"
@@ -117,7 +121,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userWeightLabel"
         android:text="@string/user_gender"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp">
     </TextView>
 
     <RadioGroup

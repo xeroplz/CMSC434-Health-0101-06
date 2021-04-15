@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:inputType="text"
-            android:text="Exercise Name:"
+            android:hint="Exercise Name:"
             />
         <EditText
             android:id="@+id/activityDate"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:inputType="text"
-            android:text="Exercise Name:"
+            android:hint="Exercise Date:"
             />
         <TextView
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:inputType="text"
-            android:text="Duration(minutes):"/>
+            android:hint="Duration(minutes):"/>
 
         <EditText
             android:id="@+id/weight"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:inputType="text"
-            android:text="Enter Weight(lbs):" />
+            android:hint="Enter Weight(lbs):" />
 
         <EditText
             android:id="@+id/reps"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:inputType="text"
-            android:text="Enter Repetition(number):" />
+            android:hint="Enter Repetition(number):" />
 
         <Button
             android:id="@+id/SubmitActivity"
