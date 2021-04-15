@@ -13,7 +13,8 @@
         android:layout_alignParentTop="true"
         android:textSize="24sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/temporary">
+        android:text="@string/temporary"
+        android:textStyle="bold">
     </TextView>
 
     <TextView

@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/meal_manager_header"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp">

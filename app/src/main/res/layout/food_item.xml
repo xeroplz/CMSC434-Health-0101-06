@@ -12,15 +12,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Food Name:">
+        android:text="Food Name:"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp">
     </TextView>
 
     <EditText
         android:id="@+id/titleView"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/titleLabel"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge">
     </EditText>
 
@@ -30,8 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="52dp"
-        android:layout_marginRight="70dp"
+        android:layout_marginTop="72dp"
         android:text="@string/meal_item_calories" >
     </TextView>
 
@@ -40,8 +41,7 @@
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:layout_toRightOf="@id/CaloriesLabel"
-        android:layout_marginLeft="-65dp" >
+        android:layout_toRightOf="@id/CaloriesLabel">
     </EditText>
 
     <TextView
@@ -49,9 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/meal_item_fats"
-        android:layout_marginTop="52dp"
-        android:layout_marginRight="70dp"
-        android:layout_toRightOf="@id/CaloriesLabel" >
+        android:layout_marginTop="72dp"
+        android:layout_toRightOf="@id/caloriesView"
+        android:layout_marginStart="20dp">
     </TextView>
 
     <EditText
@@ -59,8 +59,7 @@
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:layout_toRightOf="@id/FatsLabel"
-        android:layout_marginLeft="-65dp" >
+        android:layout_toRightOf="@id/FatsLabel">
     </EditText>
 
     <TextView
@@ -68,9 +67,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/meal_item_carbs"
-        android:layout_marginTop="52dp"
-        android:layout_marginRight="70dp"
-        android:layout_toRightOf="@id/FatsLabel" >
+        android:layout_marginTop="72dp"
+        android:layout_toRightOf="@id/fatsView"
+        android:layout_marginStart="20dp">
     </TextView>
 
     <EditText
@@ -78,8 +77,6 @@
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:layout_toRightOf="@id/CarbsLabel"
-        android:layout_marginLeft="-65dp" >
+        android:layout_toRightOf="@id/CarbsLabel">
     </EditText>
-
 </RelativeLayout>
