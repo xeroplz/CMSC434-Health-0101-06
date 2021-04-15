@@ -65,7 +65,7 @@ class MealManagerActivity : AppCompatActivity() {
         // -------------------------------------------------
         // Test data - delete later.
         // Create Food and Meals
-
+        /*
         val foods = ArrayList<Food>()
         val banana = Food("Banana", 105, 0.4, 27.0)
         val apple = Food("Apple", 95, 0.3, 25.0)
@@ -81,9 +81,8 @@ class MealManagerActivity : AppCompatActivity() {
         foods2.addAll(arrayOf(salmon, fries, bagel))
         val meal2 = Meal("Lunch", foods2)
         Meal.addMeal(applicationContext, meal2)
+        */
         // -------------------------------------------------
-
-
     }
 
     public override fun onResume() {

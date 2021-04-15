@@ -17,7 +17,7 @@ class FoodListAdapter(private val mContext: Context) : BaseAdapter() {
 
     private val mItems = ArrayList<Food>()
 
-    // Add a Meal to the adapter
+    // Add food to the adapter
     // Notify observers that the data set has changed
 
     fun add(item: Food) {
@@ -36,7 +36,7 @@ class FoodListAdapter(private val mContext: Context) : BaseAdapter() {
 
     }
 
-    // Returns the number of Meals
+    // Returns the number of foods
 
     override fun getCount(): Int {
 
@@ -44,7 +44,7 @@ class FoodListAdapter(private val mContext: Context) : BaseAdapter() {
 
     }
 
-    // Retrieve the number of Meals
+    // Retrieve the number of foods
 
     override fun getItem(pos: Int): Any {
 
@@ -52,7 +52,7 @@ class FoodListAdapter(private val mContext: Context) : BaseAdapter() {
 
     }
 
-    // Get the ID for the Meal
+    // Get the ID for the food
     // In this case it's just the position
 
     override fun getItemId(pos: Int): Long {

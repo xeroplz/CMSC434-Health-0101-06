@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:inputType="text"
-            android:hint="Duration(minutes):"/>
+            android:hint="Duration (minutes):"/>
 
         <EditText
             android:id="@+id/weight"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:inputType="text"
-            android:hint="Enter Weight(lbs):" />
+            android:hint="Enter Weight (lbs):" />
 
         <EditText
             android:id="@+id/reps"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:inputType="text"
-            android:hint="Enter Repetition(number):" />
+            android:hint="Enter Repetitions (number):" />
 
         <Button
             android:id="@+id/SubmitActivity"

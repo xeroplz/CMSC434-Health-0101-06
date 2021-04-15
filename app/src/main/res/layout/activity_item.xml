@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/activityNameLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="24sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/temporary">
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activityNameLabel"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:text="Date: " >
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityDateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/activityDateLabel"
+        android:layout_below="@id/activityNameLabel"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:text="@string/temporary" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:layout_below="@id/activityDateLabel"
+        android:text="Type: ">
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityTypeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:layout_below="@id/activityDateLabel"
+        android:layout_toEndOf="@id/activityTypeLabel"
+        android:text="@string/temporary">
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityDurationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration: "
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/activityTypeLabel">
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityDurationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temporary"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/activityTypeLabel"
+        android:layout_toEndOf="@id/activityDurationLabel">
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityWeightLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight: "
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/activityDurationLabel">
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityWeightView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temporary"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/activityDurationLabel"
+        android:layout_toEndOf="@id/activityWeightLabel">
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityRepsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reps: "
+        android:textSize="16sp"
+        android:layout_below="@id/activityWeightLabel"
+        android:layout_marginTop="10dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/activityRepsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temporary"
+        android:textSize="16sp"
+        android:layout_below="@id/activityWeightLabel"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/activityRepsLabel">
+    </TextView>
+
+</RelativeLayout>

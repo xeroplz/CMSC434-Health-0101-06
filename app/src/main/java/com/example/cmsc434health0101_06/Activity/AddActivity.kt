@@ -46,55 +46,26 @@ class AddActivity: AppCompatActivity() {
 
 
         button.setOnClickListener{
-
-            //val jsonString = getJSONFromAssets()!!
-
-
-            val name = nameOfActivity.toString()
-            val durationString = duration.toString().toIntOrNull()
-            val weightString = weights.toString().toIntOrNull()
-            val repString = reps.toString().toIntOrNull()
+            val name = nameOfActivity.text.toString()
+            val durationString = duration.text.toString().toIntOrNull()
+            val weightString = weights.text.toString().toIntOrNull()
+            val repString = reps.text.toString().toIntOrNull()
             val spinnerSelect = spinner.selectedItem.toString()
-            val dateString = date.toString()
-            val currActivity = ActivityT(name,dateString,spinnerSelect,durationString,weightString,repString)
+            val dateString = date.text.toString()
 
-            saveToJson(applicationContext,currActivity.toString(),"activities.json")
+            if (name.equals("") || dateString.equals("") || durationString == null || weightString == null
+                || repString == null || spinnerSelect.equals("")) {
+                Toast.makeText(applicationContext, "There is an invalid value in your activity entry.",
+                    Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
 
-            val str = Gson().toJson(currActivity)
-            val filePath = applicationContext.filesDir
-            val outFile = File(filePath, "activities.json")
-            outFile.writeText(str)
-            val intent = Intent(this, ActivityLogs::class.java)
-            startActivity(intent)
+            val newActivity = ActivityT(name,dateString,spinnerSelect,durationString,weightString,repString)
+            ActivityT.addActivity(applicationContext, newActivity)
+            finish()
         }
 
 
-    }
-    private fun getJSONFromAssets(): String? {
-
-        var json: String? = null
-        val charset: Charset = Charsets.UTF_8
-        try {
-            val myUsersJSONFile = assets.open("Users.json")
-            val size = myUsersJSONFile.available()
-            val buffer = ByteArray(size)
-            myUsersJSONFile.read(buffer)
-            myUsersJSONFile.close()
-            json = String(buffer, charset)
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-            return null
-        }
-        return json
-    }
-    private fun saveToJson(context:Context,activity:String?,fileName:String){
-        var filePath = context.filesDir
-        Log.i(TAG, filePath.toString())
-        val jsonUpload = Gson().toJson(activity)
-        val fileToUse = File(filePath,fileName)
-
-        Log.i(TAG, fileToUse.toString())
-        fileToUse.writeText(jsonUpload)
     }
 
     companion object {
