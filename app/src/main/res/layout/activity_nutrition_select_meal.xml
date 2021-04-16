@@ -36,6 +36,7 @@
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/button_cancel"
+        android:textSize="20sp"
         android:layout_marginBottom="20dp">
     </Button>
 

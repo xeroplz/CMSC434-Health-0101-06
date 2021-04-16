@@ -20,15 +20,29 @@
     </TextView>
 
     <TextView
-        android:id="@+id/healthProfileUnimplemented"
+        android:id="@+id/homeBMILabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Unimplemented"
+        android:textSize="25sp"
+        android:text="BMI"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeHealthProfileLabel"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="40dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/homeBMIView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:text="BMI"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeBMILabel"
+        android:layout_marginTop="10dp">
     </TextView>
 
     <TextView
@@ -36,8 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey"
-        app:layout_constraintTop_toBottomOf="@id/healthProfileUnimplemented"
-        android:layout_marginTop="100dp">
+        app:layout_constraintTop_toBottomOf="@id/homeBMIView"
+        android:layout_marginTop="50dp">
     </TextView>
 
     <TextView
@@ -48,9 +62,9 @@
         android:text="@string/home_2"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeHdiv1"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp">
+        android:layout_marginTop="20dp" >
     </TextView>
 
     <Button

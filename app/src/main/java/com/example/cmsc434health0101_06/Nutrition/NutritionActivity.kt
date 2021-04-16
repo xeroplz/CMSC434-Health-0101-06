@@ -14,6 +14,8 @@ import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
+import java.io.File
+import java.io.FileNotFoundException
 
 import java.security.KeyStore
 
@@ -23,6 +25,7 @@ class NutritionActivity : AppCompatActivity() {
     private lateinit var mFatsNum : TextView
     private lateinit var mCarbsNum : TextView
     private lateinit var mAddMealButton : Button
+    private lateinit var mClearButton : Button
     private lateinit var mListView : ListView
     internal lateinit var mAdapter: MealListAdapter
     private var clickedMealPos = -1
@@ -50,6 +53,7 @@ class NutritionActivity : AppCompatActivity() {
         mFatsNum = findViewById(R.id.nutritionFatsNumLabel)
         mCarbsNum = findViewById(R.id.nutritionCarbsNumLabel)
         mAddMealButton = findViewById(R.id.nutritionAddMealButton)
+        mClearButton = findViewById(R.id.nutritionClearButton)
         mListView = findViewById(R.id.nutritionMealListView)
         mAdapter = MealListAdapter(applicationContext)
 
@@ -65,6 +69,20 @@ class NutritionActivity : AppCompatActivity() {
         mAddMealButton.setOnClickListener {
             val startSelect = Intent(this, NutritionSelectMealActivity::class.java)
             startActivity(startSelect)
+        }
+
+        mClearButton.setOnClickListener {
+            // Delete json file
+            val fileDir = applicationContext.filesDir.absolutePath
+            try {
+                val file = File(fileDir, fileName)
+                val deleted = file.delete()
+            } catch (e: FileNotFoundException) {
+                return@setOnClickListener
+            }
+
+            mAdapter.clear()
+            loadItems()
         }
     }
 
@@ -132,6 +150,10 @@ class NutritionActivity : AppCompatActivity() {
         mCaloriesNum.text = calories.toString()
         mFatsNum.text = fats.toString() + "g"
         mCarbsNum.text = carbs.toString() + "g"
+    }
+
+    companion object {
+        private val fileName = "todayMeals.json"
     }
 
     /*
