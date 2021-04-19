@@ -83,6 +83,7 @@ class NutritionActivity : AppCompatActivity() {
 
             mAdapter.clear()
             loadItems()
+            reloadLabels()
         }
     }
 
